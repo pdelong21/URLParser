@@ -18,11 +18,11 @@ def ask_input(msg):
         url = input("Enter website: ")  # Save the input website
         flow = parse_url(url)  # Here we will call our parse function to check if its accepted or rejected
         if flow == [1, 2, 3]:
-            print("Accepted and the flow was ", flow)
+            print(url + " ACCEPTED and the flow was ", flow, " ==> L1")
         elif flow == [2, 3]:
-            print("Accepted and the flow was ", flow)
+            print(url + " ACCEPTED and the flow was ", flow, " ==> L2")
         else:
-            print("Rejected and the flow was ", flow)
+            print(url + " REJECTED")
         ask_input("Would you like to enter another website (y or n)?: ")  # Recursive call
     elif ans == "n":  # User is done
         print("Bye!!")
@@ -59,9 +59,9 @@ def parse_url(url):
 
 print("Project 1 for CS 341\n"
       "Semester: Fall 2018\n"
-      "Written by: Patrick Delong\ pgd22\n"
+      "Written by: Patrick Delong pgd22\n"
       "Instructor:  Marvin Nakayama, marvin@njit.edu\n")
 
 
-# Get input from the user OR cat in the file from stdout to stdin using command cat cases.txt | python3 proj.py
+# Get input from the user OR cat in the file from stdout to stdin using command cat cases.txt | python3 p1_18f_pgd22.py
 ask_input("Would you like to enter a website?(enter 'y' -> yes, 'n' -> no): ")
