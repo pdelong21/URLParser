@@ -1,0 +1,26 @@
+
+def new_parse(url):
+    q = 0
+    for char in url:
+        if q == 0 and char == 'w':
+            q += 1
+
+        elif q == 1 and char == 'w':
+            q +=1
+
+        elif q == 2 and char == 'w':
+            q += 1
+
+        elif q == 3 and char == '.':
+            q += 1
+
+        elif q == 4 and (char in range_l and char is not 'c'):
+            q = 5
+
+        elif q == 4 and char == 'c':
+            q += 1
+
+        elif q == 5 and char == 'o':
+            q += 1
+        elif q == 6 and char == 'm':
+        print(q)

@@ -1,0 +1,26 @@
+Project 1 for CS 341
+Semester: Fall 2018
+Written by: Patrick Delong pgd22
+Instructor:  Marvin Nakayama, marvin@njit.edu
+
+Would you like to enter a website?(enter 'y' -> yes, 'n' -> no): Enter website: www.commercial.com ACCEPTED and the flow was  [1, 2, 3]  ==> L1
+Would you like to enter another website (y or n)?: Enter website: www.co.com ACCEPTED and the flow was  [1, 2, 3]  ==> L1
+Would you like to enter another website (y or n)?: Enter website: www.x.com ACCEPTED and the flow was  [1, 2, 3]  ==> L1
+Would you like to enter another website (y or n)?: Enter website: njit.co ACCEPTED and the flow was  [2, 3]  ==> L2
+Would you like to enter another website (y or n)?: Enter website: wwww.stanford.com REJECTED  None
+Would you like to enter another website (y or n)?: Enter website: www.com.com ACCEPTED and the flow was  [1, 2, 3]  ==> L1
+Would you like to enter another website (y or n)?: Enter website: ww.com.com REJECTED  None
+Would you like to enter another website (y or n)?: Enter website: co.co ACCEPTED and the flow was  [2, 3]  ==> L2
+Would you like to enter another website (y or n)?: Enter website: www.co.com.co ACCEPTED and the flow was  [1, 2, 3]  ==> L1
+Would you like to enter another website (y or n)?: Enter website: www.com ACCEPTED and the flow was  [1, 3]  ==> L2
+Would you like to enter another website (y or n)?: Enter website: www.co ACCEPTED and the flow was  [1, 3]  ==> L2
+Would you like to enter another website (y or n)?: Enter website: www.com.comp REJECTED  None
+Would you like to enter another website (y or n)?: Enter website: wwwb.com.co ACCEPTED and the flow was  [2, 3]  ==> L2
+Would you like to enter another website (y or n)?: Enter website: www..com REJECTED  None
+Would you like to enter another website (y or n)?: Enter website: www.abcd.co ACCEPTED and the flow was  [1, 2, 3]  ==> L1
+Would you like to enter another website (y or n)?: Enter website: www.company.co.com REJECTED  None
+Would you like to enter another website (y or n)?: Enter website: company.com.co ACCEPTED and the flow was  [2, 3]  ==> L2
+Would you like to enter another website (y or n)?: Enter website: www.co.com.co ACCEPTED and the flow was  [1, 2, 3]  ==> L1
+Would you like to enter another website (y or n)?: Enter website: www.com.com.co ACCEPTED and the flow was  [1, 2, 3]  ==> L1
+Would you like to enter another website (y or n)?: Enter website: www.co.co ACCEPTED and the flow was  [1, 2, 3]  ==> L1
+Would you like to enter another website (y or n)?: Bye!!

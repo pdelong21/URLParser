@@ -3,11 +3,25 @@ Project 1 for CS 341
 Semester: Fall 2018
 Written by: Patrick Delong pgd22@njit.edu
 Instructor:  Marvin Nakayama, marvin@njit.edu
+
+README
+
+Project 1 was written in Python version 3.7.0.. Please use the following instructions if trying to execute my code.
+
+Using a terminal...
+1) Command used to run all the test cases in "cases.txt" against my code
+    ->  cat cases.txt | python3 p1_18f_pgd22.py
+
+2) Command used to capture the output of my code
+    -> cat cases.txt | python3 p1_18f_pgd22.py | cat > output.txt
+
+3) Command to run the program without piping in input
+    -> python3 p1_18f_pgd22.py
+
+    Then follow the instructions provided on the command line...
 """
-import string
 
 range_s1 = ["www."]  # s1
-range_l = string.ascii_lowercase  # s2
 range_s3 = [".com", ".com.co", ".co"]  # s3
 
 
@@ -21,14 +35,16 @@ def ask_input(msg):
             print(url + " ACCEPTED and the flow was ", flow, " ==> L1")
         elif flow == [2, 3]:   # Went from state 2 -> 3
             print(url + " ACCEPTED and the flow was ", flow, " ==> L2")
+        elif flow == [1, 3]:    # Technically this can be considered the same as flow[2,3]
+            print(url + " ACCEPTED and the flow was ", flow, " ==> L2")
         else:  # Either went to state 1 -> 3, just to 2, or just to 3...
-            print(url + " REJECTED")
+            print(url + " REJECTED ", flow)
         ask_input("Would you like to enter another website (y or n)?: ")  # Recursive call to input more sites
     elif ans == "n":  # User is done
         print("Bye!!")
         return  # End the program
     else:
-        ask_input("Must type 'y' or 'n': ")  # User didn't format the answer right
+        ask_input("Must type 'y' or 'n' followed by the enter key: ")  # User didn't format the answer right
 
 
 # Parse the url character by character and return whether it was accepted or rejected
@@ -36,13 +52,13 @@ def parse_url(url):
     sub_str = ""  # Start with a blank sub string to build and compare
     state = 0  # We have no state yet
     s_flow = []  # Start with a blank list
-
+    q = 0
     for char in url:  # Character by character in the url
         sub_str += char  # Build up the string to compare against s1, s2, or s3
 
         if char is '.' and sub_str in range_s1 and state == 0:  # if we are just starting and we notice the substring
             s_flow += [1]                                       # is in s1, push back the state
-            sub_str = ''                                        # clear the string
+            sub_str = '.'                                       # clear the string
             state = 2                                           # next state should be this
             continue
 
@@ -54,15 +70,19 @@ def parse_url(url):
             sub_str = '.'  # Clear the substring and keep the dot as its need for a later comparison
             state = 3      # Change the state to s3 so we don't get back in here
             continue
+
     #  If we went through state 2 then this will get executed so as long the substring is contained in range_s3
     if state == 3 and sub_str in range_s3:
         s_flow += [state]  # push back the state
         return s_flow      # return our list of states
+    elif s_flow == [1] and sub_str in range_s3:  # Case where it could be range_s1 with ending of range_s3 which is
+        s_flow += [3]                            # equivalent to s_flow[2,3] so this is L2
+        return s_flow                            # return the state flow
 
 
 print("Project 1 for CS 341\n"
       "Semester: Fall 2018\n"
-      "Written by: Patrick Delong pgd22@njit.edu\n"
+      "Written by: Patrick Delong pgd22\n"
       "Instructor:  Marvin Nakayama, marvin@njit.edu\n")
 
 
